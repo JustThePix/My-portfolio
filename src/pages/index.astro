@@ -2,8 +2,23 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="The Pix's web">
   <main class="flex flex-col items-center justify-center h-screen p-8">
-    <div class="w-full h-full p-4 border-8 border-white shadow-glow"></div>
+    <div
+      class="flex flex-col items-center justify-center w-full h-full p-8 border-8 border-white rounded-lg itmes-center shadow-glow"
+    >
+      <img
+        class="transition-all animate-float w-44 max-md:w-20 max-lg:w-30"
+        src="/favicon.svg"
+        alt=""
+      />
+      <h1
+        class="mt-8 font-bold text-center text-white text-8xl max-md:text-3xl max-lg:text-6xl"
+      >
+        I'm <span class="text-glow">Pix</span> a <span class="text-glow"
+          >Fullstack</span
+        > developer
+      </h1>
+    </div>
   </main>
 </Layout>

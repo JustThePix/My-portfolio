@@ -5,9 +5,25 @@ export default {
     extend: {
       boxShadow: {
         glow: [
-          "0px 0px 35px 10px rgba(255,255,255,1)",
-          "inset 0px 0px 35px 2px rgba(255,255,255,1)",
+          "0 0 35px 10px rgba(255,255,255,1)",
+          "inset 0 0 30px 10px rgba(255,255,255,1)",
         ],
+      },
+      keyframes: {
+        float: {
+          "0%": {
+            transform: "translatey(0px)",
+          },
+          "50%": {
+            transform: "translatey(-20px)",
+          },
+          "100%": {
+            transform: "translatey(0px)",
+          },
+        },
+      },
+      animation: {
+        float: "float 2s ease-in-out infinite",
       },
     },
   },
