@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="The Pix's web">
-  <main class="flex flex-col items-center justify-center h-screen p-8">
+  <section id="Welcome" class="h-screen p-8">
     <div
       class="flex flex-col items-center justify-center w-full h-full p-8 border-8 border-white rounded-lg itmes-center shadow-glow"
     >
@@ -20,5 +20,27 @@ import Layout from "../layouts/Layout.astro";
         > developer
       </h1>
     </div>
-  </main>
+  </section>
+  <section
+    id="AboutMe"
+    class="w-screen h-screen p-8 max-md:text-center max-md:p-0 max-md:pt-8"
+  >
+    <h1 class="my-8 text-6xl font-bold text-white text-glow">About me</h1>
+    <div class="flex flex-col w-screen max-md:justify-center">
+      <p class="w-1/2 text-white max-md:w-full max-md:mx-4">
+        Just a Colombian guy with a dream, the dream to be the best full-stack
+        developer, I'm just a kid sitting in his chair, programming, I don't
+        know much about this, but I'm willing to learn, I will do everything
+        that is necessary to make my dream come true.
+      </p>
+      <p class="w-1/2 mt-4 text-white max-md:w-full max-md:mx-4">
+        I was born with a keyboard in the hand, I'm interested in the technology
+        since I was born, always seeing what I will play today?, what I will
+        download today? What I will learn today?
+      </p>
+      <p class="w-1/2 mt-4 text-white max-md:w-full max-md:mx-4">
+        And now, <span class="text-glow">you know me?</span>
+      </p>
+    </div>
+  </section>
 </Layout>
