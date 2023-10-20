@@ -38,6 +38,30 @@ const { title } = Astro.props;
     overflow-x: hidden;
   }
 
+  .box-glow {
+    box-shadow:
+      0 0 5px white,
+      0 0 25px white,
+      0 0 50px white,
+      0 0 100px;
+  }
+
+  .text-glow {
+    text-shadow:
+      0 0 5px white,
+      0 0 25px white,
+      0 0 50px white,
+      0 0 100px;
+  }
+
+  .text-glow-black {
+    text-shadow:
+      0 0 5px black,
+      0 0 25px black,
+      0 0 50px black,
+      0 0 100px;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -55,9 +79,9 @@ const { title } = Astro.props;
     font-size: 2.5vh;
   }
 
-  .text-glow {
+  /*.text-glow {
     text-shadow: 1px 1px 20px rgba(255, 255, 255, 1);
-  }
+  }*/
 
   @font-face {
     font-family: "Conneqt Bold";

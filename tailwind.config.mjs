@@ -3,12 +3,6 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      boxShadow: {
-        glow: [
-          "0 0 35px 10px rgba(255,255,255,1)",
-          "inset 0 0 30px 10px rgba(255,255,255,1)",
-        ],
-      },
       keyframes: {
         float: {
           "0%": {
