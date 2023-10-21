@@ -1,5 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+function getRepos() {
+  return {
+    url: "https://api.github.com/users/JustThePix/repos",
+    repos: [],
+  };
+}
 ---
 
 <Layout title="The Pix's web">
@@ -47,26 +54,98 @@ import Layout from "../layouts/Layout.astro";
   </section>
   <section
     id="Skills"
-    class="w-screen h-screen p-8 max-md:text-center max-md:p-0 max-md:pt-8 max-md:pb-0"
+    class="w-screen h-full p-8 max-md:text-center max-md:p-0 max-md:pt-8 max-md:pb-0"
   >
-    <h1 class="mb-8 text-6xl font-bold text-white text-glow">About me</h1>
-    <div class="flex flex-col flex-wrap text-white">
-      <p>HTML</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">CSS</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">JS</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">React</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">Tailwind</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">NodeJS</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">MySQL</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
-      <p class="mt-4">Git</p>
-      <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
+    <h1 class="mb-8 text-6xl font-bold text-white text-glow">My skills</h1>
+    <div class="flex flex-row-reverse max-md:flex-col">
+      <div class="flex flex-col text-white md:pr-10 md:w-1/2 md:justify-center">
+        <h2 class="text-xl text-glow">Front and back</h2>
+        <p>
+          I work constantly with frontend and backend, to the backend I use Go,
+          and for the frontend Javascript.
+        </p>
+        <h2 class="mt-4 text-xl text-glow">Responsive is the best</h2>
+        <p>
+          The respondive design makes your page more compatible with all
+          devices.
+        </p>
+      </div>
+      <div class="flex justify-center md:w-1/2 max-md:mt-4">
+        <div class="flex flex-col flex-wrap text-white md:items-end">
+          <p class="md:mr-4">HTML</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="p-1 bg-white rounded-full w-44 box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">CSS</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="w-48 p-1 bg-white rounded-full box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">JS</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="p-1 bg-white rounded-full w-44 box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">React</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="w-32 p-1 bg-white rounded-full box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">Tailwind</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="w-48 p-1 bg-white rounded-full box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">NodeJS</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="w-56 p-1 bg-white rounded-full box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">MySQL</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="p-1 bg-white rounded-full w-28 box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">Git</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="p-1 bg-white rounded-full w-44 box-glow"></div>
+          </div>
+          <p class="mt-4 md:mr-4">Go</p>
+          <div class="w-56 rounded-full bg-stone-950">
+            <div class="p-1 bg-white rounded-full w-36 box-glow"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+  <section
+    id="Projects"
+    class="w-screen h-full p-8 text-white max-md:p-0 max-md:pt-8 max-md:pb-0"
+    x-data="getRepos()"
+    x-init="fetch(url).then(response => response.json()).then(json => repos = json)"
+  >
+    <h1
+      class="mb-8 text-6xl font-bold text-white max-md:text-center max-sm:text-4xl text-glow"
+    >
+      My projects
+    </h1>
+    <template x-for="repo in repos" :key="repo">
+      <div class="mb-4 max-md:px-4">
+        <a x-text="repo.name" x-bind:href="repo.html_url"></a>
+        <p x-text="repo.description"></p>
+      </div>
+    </template>
+  </section>
+  <footer
+    class="absolute flex justify-center w-screen p-4 text-center text-white bg-stone-950"
+  >
+    <a class="mr-4" href="https://www.youtube.com/@ThePixsID"
+      ><i class="fa-brands fa-youtube"></i> Youtube</a
+    >
+    <a href="https://twitter.com/ThePixID"
+      ><i class="fa-brands fa-square-x-twitter"></i> Twitter</a
+    >
+  </footer>
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.data("getRepos", () => ({
+        url: "https://api.github.com/users/JustThePix/repos",
+        repos: [],
+      }));
+    });
+  </script>
 </Layout>

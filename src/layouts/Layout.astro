@@ -24,6 +24,17 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/4927c10edd.js"
+      crossorigin="anonymous"></script>
+    <script>
+      function getRepos() {
+        return {
+          url: "api.github.com/users/JustThePix/repos",
+          repos: [],
+        };
+      }
+    </script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -54,11 +65,21 @@ const { title } = Astro.props;
       0 0 100px;
   }
 
-  .text-glow-black {
+  a {
+    font-family: "Conneqt Bold";
     text-shadow:
-      0 0 5px black,
-      0 0 25px black,
-      0 0 50px black,
+      0 0 5px white,
+      0 0 15px white,
+      0 0 40px white,
+      0 0 90px;
+    @apply transition-all;
+  }
+
+  a:hover {
+    text-shadow:
+      0 0 5px white,
+      0 0 25px white,
+      0 0 50px white,
       0 0 100px;
   }
 
